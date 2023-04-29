@@ -1,32 +1,30 @@
 import { StyleSheet, View, Text } from 'react-native';
 import { useEffect } from 'react';
 
-const Chat = ({route, navigation}) => {
-    const {name} = route.params;
-    // Get Colors from Start.js
-    const {color} = route.params;
+const Chat = ({ route, navigation }) => {
+    const { name, backgroundColor } = route.params;
 
     useEffect(() => {
-        navigation.setOptions({ title: name });
-        // Set Background Color from Start.js 
-        navigation.setOptions({ backgroundColor: color });
+        navigation.setOptions({ title: name});
     }, []);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container(backgroundColor)}>
             <Text>Hello Chat!</Text>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-  container: {
+  container: (backgroundColor) => {
+    return {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center'
-      
+      alignItems: 'center',
+      backgroundColor: backgroundColor,
+    };
   }
-})
+});
 
 export default Chat;
 
