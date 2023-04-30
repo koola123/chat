@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "#fff",
     width: "88%",
-    height: "44%",
+    minHeight: 290,
     bottom: 20,
   },
   appTitle: {
