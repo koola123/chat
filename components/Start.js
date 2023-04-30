@@ -6,6 +6,7 @@ import {
   TextInput,
   ImageBackground,
   Pressable,
+  KeyboardAvoidingView,
   TouchableOpacity,
 } from "react-native";
 
@@ -19,6 +20,7 @@ const Start = ({ navigation }) => {
   const [color, setColor] = useState("");
 
   return (
+    <>
     <View style={styles.container}>
       <ImageBackground
         source={require("../assets/backgroundImage.png")}
@@ -97,6 +99,10 @@ const Start = ({ navigation }) => {
         </View>
       </View>
     </View>
+    {Platform.OS === "ios" ? (
+        <KeyboardAvoidingView behavior="padding" />
+      ) : null}
+    </>
   );
 };
 
