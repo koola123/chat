@@ -8,7 +8,9 @@ import {
   Pressable,
   KeyboardAvoidingView,
   TouchableOpacity,
+  Alert
 } from "react-native";
+import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 
 const color_1 = "#090C08";
 const color_2 = "#474056";
@@ -16,8 +18,25 @@ const color_3 = "#8A95A5";
 const color_4 = "#B9C6AE";
 
 const Start = ({ navigation }) => {
+  const auth = getAuth();
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
+
+// sign in user anonymously
+  const signInUser = () => {
+    signInAnonymously(auth)
+    .then(result => {
+      navigation.navigate("Chat", {
+        userID: result.user.id,
+        name: name,
+        backgroundColor: color,
+      });
+      Alert.alert("Signed in Successfully!");
+    })
+    .catch((error) => {
+      Alert.alert("Unable to sign in, try again later.")
+    });
+  };
 
   return (
     <>
@@ -42,45 +61,45 @@ const Start = ({ navigation }) => {
           <Text style={styles.colorText}>Choose Background Color:</Text>
           <View style={styles.circles}>
             <TouchableOpacity
-              style={{ 
-                backgroundColor: "#090C08", 
-                width: 42, 
-                height: 42, 
-                borderRadius: 50/2, 
-                borderWidth: 2, 
+              style={{
+                backgroundColor: "#090C08",
+                width: 42,
+                height: 42,
+                borderRadius: 50/2,
+                borderWidth: 2,
                 borderColor: "#757083"}}
               onPress={() => setColor(color_1)}
             >
             </TouchableOpacity>
             <TouchableOpacity
-              style={{ 
-                backgroundColor: "#474056", 
-                width: 42, 
-                height: 42, 
-                borderRadius: 50/2, 
-                borderWidth: 2, 
+              style={{
+                backgroundColor: "#474056",
+                width: 42,
+                height: 42,
+                borderRadius: 50/2,
+                borderWidth: 2,
                 borderColor: "#757083" }}
               onPress={() => setColor(color_2)}
             >
             </TouchableOpacity>
             <TouchableOpacity
-              style={{ 
-                backgroundColor:  "#8A95A5", 
-                width: 42, 
-                height: 42, 
-                borderRadius: 50/2, 
-                borderWidth: 2, 
+              style={{
+                backgroundColor:  "#8A95A5",
+                width: 42,
+                height: 42,
+                borderRadius: 50/2,
+                borderWidth: 2,
                 borderColor: "#757083" }}
               onPress={() => setColor(color_3)}
             >
             </TouchableOpacity>
             <TouchableOpacity
-                style={{ 
-                  backgroundColor: "#B9C6AE", 
-                  width: 42, 
-                  height: 42, 
-                  borderRadius: 50/2, 
-                  borderWidth: 2, 
+                style={{
+                  backgroundColor: "#B9C6AE",
+                  width: 42,
+                  height: 42,
+                  borderRadius: 50/2,
+                  borderWidth: 2,
                   borderColor: "#757083" }}
                 onPress={() => setColor(color_4)}
               >
@@ -89,9 +108,8 @@ const Start = ({ navigation }) => {
           <Pressable>
             <Text
               style={styles.button}
-              onPress={() =>
-                navigation.navigate("Chat", { name: name, backgroundColor: color })
-              }
+              onPress={signInUser}
+              // onPress={() =>navigation.navigate("Chat", { name: name, backgroundColor: color })}
             >
               Start Chatting
             </Text>
