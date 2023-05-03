@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 // import the screens
 import Start from './components/Start';
 import Chat from './components/Chat';
@@ -8,9 +9,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 // Initializing a connection to firebase
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { LogBox } from 'react-native';
+import { getFirestore, disableNetwork, enableNetwork } from "firebase/firestore";
+import { LogBox, Alert } from 'react-native';
 LogBox.ignoreLogs(["AsyncStorage has been extracted from"]);
+import { useNetInfo }from '@react-native-community/netinfo';
 
 const App = () => {
   const firebaseConfig = {
@@ -28,6 +30,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app); // When using this in other components, you can read from, and write into, your database via your app.
 
 
+const connectionStatus = useNetInfo();
+
+useEffect(() => {
+  if (connectionStatus.isConnected === false) {
+    Alert.alert("Connection lost!")
+    disableNetwork(db);
+  } else if (connectionStatus.isConnected === true) {
+    enableNetwork(db);
+  }
+}, [connectionStatus.isConnected]);
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -39,7 +53,7 @@ const db = getFirestore(app); // When using this in other components, you can re
         />
         <Stack.Screen
           name="Chat">
-          {props => <Chat db={db} {...props}/>}
+          {props => <Chat db={db} isConnected={connectionStatus.isConnected} {...props}/>}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
