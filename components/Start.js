@@ -8,7 +8,7 @@ import {
   Pressable,
   KeyboardAvoidingView,
   TouchableOpacity,
-  Alert
+  Alert,
 } from "react-native";
 import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 
@@ -22,102 +22,102 @@ const Start = ({ navigation }) => {
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
 
-// sign in user anonymously
+  // sign in user anonymously
   const signInUser = () => {
     signInAnonymously(auth)
-    .then(result => {
-      navigation.navigate("Chat", {
-        userID: result.user.uid,
-        name: name,
-        backgroundColor: color,
+      .then((result) => {
+        navigation.navigate("Chat", {
+          userID: result.user.uid,
+          name: name,
+          backgroundColor: color,
+        });
+        Alert.alert("Signed in Successfully!");
+      })
+      .catch((error) => {
+        Alert.alert("Unable to sign in, try again later.");
       });
-      Alert.alert("Signed in Successfully!");
-    })
-    .catch((error) => {
-      Alert.alert("Unable to sign in, try again later.")
-    });
   };
 
   return (
     <>
-    <View style={styles.container}>
-      <ImageBackground
-        source={require("../assets/backgroundImage.png")}
-        resizeMode="cover"
-        style={{ width: "100%", height: "100%" }}
-      />
-      <View style={styles.appTitle}>
-        <Text style={styles.appTitle}>Loopin</Text>
-      </View>
-      <View style={styles.subContainer}>
-        <TextInput
-          style={styles.textInput}
-          value={name}
-          onChangeText={setName}
-          placeholder="Your Name"
-          textContentType="username"
+      <View style={styles.container}>
+        <ImageBackground
+          source={require("../assets/backgroundImage.png")}
+          resizeMode="cover"
+          style={{ width: "100%", height: "100%" }}
         />
-        <View style={styles.colorOptions}>
-          <Text style={styles.colorText}>Choose Background Color:</Text>
-          <View style={styles.circles}>
-            <TouchableOpacity
-              style={{
-                backgroundColor: "#090C08",
-                width: 42,
-                height: 42,
-                borderRadius: 50/2,
-                borderWidth: 2,
-                borderColor: "#757083"}}
-              onPress={() => setColor(color_1)}
-            >
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                backgroundColor: "#474056",
-                width: 42,
-                height: 42,
-                borderRadius: 50/2,
-                borderWidth: 2,
-                borderColor: "#757083" }}
-              onPress={() => setColor(color_2)}
-            >
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                backgroundColor:  "#8A95A5",
-                width: 42,
-                height: 42,
-                borderRadius: 50/2,
-                borderWidth: 2,
-                borderColor: "#757083" }}
-              onPress={() => setColor(color_3)}
-            >
-            </TouchableOpacity>
-            <TouchableOpacity
+        <View style={styles.appTitle}>
+          <Text style={styles.appTitle}>Loopin</Text>
+        </View>
+        <View style={styles.subContainer}>
+          <TextInput
+            style={styles.textInput}
+            value={name}
+            onChangeText={setName}
+            placeholder="Your Name"
+            textContentType="username"
+          />
+          <View style={styles.colorOptions}>
+            <Text style={styles.colorText}>Choose Background Color:</Text>
+            <View style={styles.circles}>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "#090C08",
+                  width: 42,
+                  height: 42,
+                  borderRadius: 50 / 2,
+                  borderWidth: 2,
+                  borderColor: "#757083",
+                }}
+                onPress={() => setColor(color_1)}
+              ></TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "#474056",
+                  width: 42,
+                  height: 42,
+                  borderRadius: 50 / 2,
+                  borderWidth: 2,
+                  borderColor: "#757083",
+                }}
+                onPress={() => setColor(color_2)}
+              ></TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "#8A95A5",
+                  width: 42,
+                  height: 42,
+                  borderRadius: 50 / 2,
+                  borderWidth: 2,
+                  borderColor: "#757083",
+                }}
+                onPress={() => setColor(color_3)}
+              ></TouchableOpacity>
+              <TouchableOpacity
                 style={{
                   backgroundColor: "#B9C6AE",
                   width: 42,
                   height: 42,
-                  borderRadius: 50/2,
+                  borderRadius: 50 / 2,
                   borderWidth: 2,
-                  borderColor: "#757083" }}
+                  borderColor: "#757083",
+                }}
                 onPress={() => setColor(color_4)}
+              ></TouchableOpacity>
+            </View>
+            <Pressable>
+              <Text
+                style={styles.button}
+                onPress={signInUser}
+                // onPress={() =>navigation.navigate("Chat", { name: name, backgroundColor: color })}
               >
-            </TouchableOpacity>
+                Start Chatting
+              </Text>
+            </Pressable>
           </View>
-          <Pressable>
-            <Text
-              style={styles.button}
-              onPress={signInUser}
-              // onPress={() =>navigation.navigate("Chat", { name: name, backgroundColor: color })}
-            >
-              Start Chatting
-            </Text>
-          </Pressable>
         </View>
       </View>
-    </View>
-    {Platform.OS === "ios" ? (
+      {Platform.OS === "ios" ? (
         <KeyboardAvoidingView behavior="padding" />
       ) : null}
     </>
