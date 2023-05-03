@@ -79,7 +79,7 @@ const Chat = ({ route, navigation, db }) => {
         renderBubble={renderBubble}
         onSend={(messages) => onSend(messages)}
         user={{
-          _id: userID,
+          userID: userID,
           name: name
         }}
       />
