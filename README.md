@@ -45,7 +45,7 @@ firebase.initializeApp({
 
 Run the following next commands:
 ````
-npx expo install <br/>
+npx expo install
 npx expo start
 ````
 Last but not least: 
