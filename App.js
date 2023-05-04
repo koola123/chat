@@ -17,6 +17,7 @@ import {
 import { LogBox, Alert } from "react-native";
 LogBox.ignoreLogs(["AsyncStorage has been extracted from"]);
 import { useNetInfo } from "@react-native-community/netinfo";
+import { getStorage } from "firebase/storage";
 
 const App = () => {
   const firebaseConfig = {
@@ -32,6 +33,7 @@ const App = () => {
   const app = initializeApp(firebaseConfig);
   // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app); // When using this in other components, you can read from, and write into, your database via your app.
+  const storage = getStorage(app);
 
   const connectionStatus = useNetInfo();
 
@@ -51,8 +53,9 @@ const App = () => {
         <Stack.Screen name="Chat">
           {(props) => (
             <Chat
-              db={db}
               isConnected={connectionStatus.isConnected}
+              db={db}
+              storage={storage}
               {...props}
             />
           )}
