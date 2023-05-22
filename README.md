@@ -3,7 +3,7 @@ Messenger app for mobile devices using React Native. The app provides users with
 
 <br>
 
-<strong>[DEMO VIDEO LINK](https://www.youtube.com/watch?v=PKXM3phLcDw "Chat App")</strong>
+<strong>[VIDEO DEMO LINK](https://www.youtube.com/watch?v=PKXM3phLcDw "Chat App")</strong>
 
 <br>
 
@@ -54,11 +54,11 @@ Setting up your database
 
 <br>
 
-## Installation:
+## 🛠 Installation:
 
 <br>
 
-Cloning the repository:
+Clone the repository:
 
 <br>
 
@@ -69,7 +69,7 @@ cd chat
 
 In the App.js file replace the firebaseConfig variable with the configuration info from your own Firestore database:
 
-then run the following commands:
+Then run the following commands:
 ````
 firebase.initializeApp({
   apiKey: "your-api-key",
@@ -81,7 +81,7 @@ firebase.initializeApp({
 });
 ````
 
-Run the following next commands:
+Run the next commands:
 ````
 npx expo install
 npx expo start
