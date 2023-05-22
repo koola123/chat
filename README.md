@@ -1,17 +1,24 @@
 # 📲 Chat App
-Is a messenger app for mobile devices using React Native. The app provides users with a chat interface and options to share images and their location. Users can share self-taken photos with other users, upload photos from their photo gallery and communicate their location via Google Maps.
+A messenger app for mobile devices using React Native. The app provides users with a chat interface and options to share images and their location. Users can share self-taken photos with other users, upload photos from their photo gallery and communicate their location via Google Maps.
 
 <br>
 
-![chat1.png](assets/chat1.png)
-![chat1.png](assets/chat4.png)
-![chat1.png](assets/chat5.png)
+<strong>[DEMO VIDEO LINK](https://www.youtube.com/watch?v=PKXM3phLcDw "Chat App")</strong>
+
+<br>
+<img src="assets/chat1.png" width="180"/>
+<img src="assets/chat4.png" width="180"/> 
+<img src="assets/chat5.png" width="180"/> 
+
+<br>
 
 ## Application features:
 - A page where users can enter their name and choose a background color for the chat screen before joining the chat.
 - A page displaying the conversation, as well as an input field and submit button.
 - The chat provides users with two additional communication features: sending images and location data.
 - Data gets stored online and offline.
+
+<br>
 
 ## Technology used:
 - React Native
@@ -37,7 +44,7 @@ Setting up your database
 
 <br>
 
-## Installation
+## Installation:
 
 <br>
 
@@ -76,13 +83,10 @@ Install the Expo Go App from <b>Apple Store</b> or <b>Google Play Store</b> to t
 Finally:
 
 1. Install the Expo Go App from Apple Store or Google Play Store to test the project on your mobile device.
-2. Install Android Studio for Android Emulator or XCODE for iOS Simulator to test the app.
+2. Install `Android Studio` for Android Emulator or `XCODE` for iOS Simulator to test the app.
 3. Run the emulator/simulator.
-4. Back in the terminal where you ran `expo start`, select the emulator/simulator to start the app
+4. Back in the terminal where you ran `expo start`, select the emulator/simulator to start or run the app
 
 <br>
 
 Version 1.0.0
-Last but not least: 
-1. Install the Expo Go App from <b>Apple Store</b> or <b>Google Play Store</b> to test the project on your mobile device.<br/>
-2. Install <b>[ ANDROID STUDIO ]</b> for Android Emulator or <b>[ XCODE ]</b> for ios Simulator to test the app.
