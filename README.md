@@ -1,14 +1,24 @@
 # 📲 Chat App
-A messenger app for mobile devices using React Native. The app provides users with a chat interface and options to share images and their location. Users can share self-taken photos with other users, upload photos from their photo gallery and communicate their location via Google Maps.
+Messenger app for mobile devices using React Native. The app provides users with a chat interface and options to share images and their location. Users can share self-taken photos with other users, upload photos from their photo gallery and communicate their location via Google Maps.
 
 <br>
 
 <strong>[DEMO VIDEO LINK](https://www.youtube.com/watch?v=PKXM3phLcDw "Chat App")</strong>
 
 <br>
-<img src="assets/chat1.png" width="180"/>
-<img src="assets/chat4.png" width="180"/> 
-<img src="assets/chat5.png" width="180"/> 
+
+<table>
+  <tr align="center">
+    <td>First Screen Page</td>
+    <td>Second Screen Page</td>
+    <td>Third Screen Page</td>
+  </tr>
+  <tr>
+    <td><img src="assets/chat1.png" width="420"></td>
+    <td><img src="assets/chat4.png" width="420"></td>
+    <td><img src="assets/chat5.png" width="420"></td>
+  </tr>
+ </table>
 
 <br>
 
