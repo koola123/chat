@@ -1,8 +1,6 @@
 # 📲 Chat App
 Messenger app for mobile devices using React Native. The app provides users with a chat interface and options to share images and their location. Users can share self-taken photos with other users, upload photos from their photo gallery and communicate their location via Google Maps.
 
-<br>
-
 <strong>[VIDEO DEMO LINK](https://www.youtube.com/watch?v=PKXM3phLcDw "Chat App")</strong>
 
 <br>
@@ -20,15 +18,11 @@ Messenger app for mobile devices using React Native. The app provides users with
   </tr>
  </table>
 
-<br>
-
 ## Application features:
 - A page where users can enter their name and choose a background color for the chat screen before joining the chat.
 - A page displaying the conversation, as well as an input field and submit button.
 - The chat provides users with two additional communication features: sending images and location data.
 - Data gets stored online and offline.
-
-<br>
 
 ## Technology used:
 - React Native
@@ -37,13 +31,9 @@ Messenger app for mobile devices using React Native. The app provides users with
 - Google Firebase Authentication
 - React Native Gifted Chat
 
-<br>
-
 ## How to use it:
 
-### Prerequisites
-
-<br>
+#### Prerequisites
 
 Install nodejs LTS version.
 Setting up your database
@@ -52,15 +42,9 @@ Setting up your database
 - In there create a Firestore Database
 - At *Settings* -> *General* -> *Your apps* -> *Firestore for Web* generate your configuration object.
 
-<br>
-
 ## 🛠 Installation:
 
-<br>
-
 Clone the repository:
-
-<br>
 
 ````
 git clone https://github.com/koola123/chat.git
