@@ -24,7 +24,7 @@ Messenger app for mobile devices using React Native. The app provides users with
 - The chat provides users with two additional communication features: sending images and location data.
 - Data gets stored online and offline.
 
-## 🎯 Technology stack:
+## Technology stack:
 - React Native
 - Expo
 - Google Firestore Database
